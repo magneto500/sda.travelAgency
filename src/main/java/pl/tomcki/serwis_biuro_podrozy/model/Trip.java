@@ -23,7 +23,6 @@ public class Trip {
 				private String descriptionTrip;
 				private LocalDate departureDate;
 				private LocalDate returnDate;
-				private Integer timeTrip;
 				private BigDecimal adultPrice;
 				private BigDecimal childPrice;
 				private String feedingType;
@@ -33,8 +32,10 @@ public class Trip {
 				private City fromCity;
 				@OneToMany(mappedBy = "trip")
 				private Set<TripCityPoint> cities;
-				@ManyToOne
-				private TripBuying tripBuying;
+				@OneToMany(mappedBy = "trip")
+				private Set<TripBuying> tripBuying;
+
+
 
 }
 

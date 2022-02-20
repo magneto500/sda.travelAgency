@@ -15,7 +15,7 @@ public class TripCityPoint {
 				@Id
 				@GeneratedValue(strategy = GenerationType.AUTO)
 				private Long id;
-				private int orderPosition;
+				private Integer orderPosition;
 				@ManyToOne
 				private Trip trip;
 				@ManyToOne

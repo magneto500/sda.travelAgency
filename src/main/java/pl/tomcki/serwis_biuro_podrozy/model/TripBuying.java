@@ -25,6 +25,6 @@ public class TripBuying {
 				private Integer childTicket;
 				@ManyToOne
 				private User user;
-				@OneToMany(mappedBy = "tripBuying")
-				private Set<Trip> trips;
+				@ManyToOne
+				private Trip trip;
 }
