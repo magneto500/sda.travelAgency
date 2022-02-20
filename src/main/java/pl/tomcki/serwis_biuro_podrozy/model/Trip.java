@@ -18,7 +18,7 @@ import java.util.Set;
 public class Trip {
 
 				@Id
-				@GeneratedValue(strategy = GenerationType.AUTO)
+				@GeneratedValue(strategy = GenerationType.IDENTITY)
 				private Long idtrip;
 				private String descriptionTrip;
 				private LocalDate departureDate;

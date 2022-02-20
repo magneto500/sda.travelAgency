@@ -14,7 +14,7 @@ import java.util.Set;
 public class City {
 
 				@Id
-				@GeneratedValue(strategy = GenerationType.AUTO)
+				@GeneratedValue(strategy = GenerationType.IDENTITY)
 				private Long idCity;
 				private String cityName;
 				private String country;

@@ -17,7 +17,7 @@ import java.util.Set;
 public class TripBuying {
 
 				@Id
-				@GeneratedValue(strategy = GenerationType.AUTO)
+				@GeneratedValue(strategy = GenerationType.IDENTITY)
 				private Long idTripBuying;
 				private BigDecimal price;
 				private LocalDate buyingDate;
