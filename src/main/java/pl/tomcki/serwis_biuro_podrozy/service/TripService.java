@@ -1,27 +1,26 @@
 package pl.tomcki.serwis_biuro_podrozy.service;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripCreateRequest;
 import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripDto;
+import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripSearchDto;
+import pl.tomcki.serwis_biuro_podrozy.model.City;
 import pl.tomcki.serwis_biuro_podrozy.model.Trip;
+import pl.tomcki.serwis_biuro_podrozy.repository.CityRepository;
 import pl.tomcki.serwis_biuro_podrozy.repository.TripRepository;
 
 import javax.persistence.EntityNotFoundException;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class TripService {
 				public final TripRepository tripRepository;
+				public final CityRepository cityRepository;
 
-				@Autowired
-				public TripService(TripRepository tripRepository) {
-								this.tripRepository = tripRepository;
-				}
 
 				public List<TripDto> showAllTrips() {
 								return tripRepository.findAll().stream()
@@ -40,7 +39,6 @@ public class TripService {
 																.departureDate(request.getDepartureDate())
 																.returnDate(request.getReturnDate())
 																.adultPrice(request.getAdultPrice())
-																.childPrice(request.getChildPrice())
 																.feedingType(request.getFeedingType())
 																.build();
 								tripRepository.save(createdTrip);
@@ -63,11 +61,29 @@ public class TripService {
 												trip.setDepartureDate(request.getDepartureDate());
 												trip.setReturnDate(request.getReturnDate());
 												trip.setAdultPrice(request.getAdultPrice());
-												trip.setChildPrice(request.getChildPrice());
 												trip.setFeedingType(request.getFeedingType());
 												tripRepository.save(trip);
 								}
 								throw new EntityNotFoundException("Didn't find trip with id: " + idTrip);
 				}
-}
 
+				public List<TripDto> searchBy(TripSearchDto request) {
+								Optional<City> cityOptional = cityRepository.findByCityName(request.getCityStart());
+								if(cityOptional.isPresent()) {
+												City city = cityOptional.get();
+
+												List<Trip> trips = tripRepository.findAllByAdultPriceBetweenAndDepartureDateBetweenAndFromCityAndDescriptionTrip(
+																				BigDecimal.valueOf(request.getPriceFrom()),
+																				BigDecimal.valueOf(request.getPriceTo()),
+																				request.getDateStartFrom(),
+																				request.getDateStartTo(),
+																				city,
+																				request.getTripDescription()
+																				);
+												return trips.stream()
+																				.map(TripDto::mapFromTrip)
+																				.collect(Collectors.toList());
+								}
+								throw new EntityNotFoundException("Can't find city: " + request.getCityStart());
+				}
+}

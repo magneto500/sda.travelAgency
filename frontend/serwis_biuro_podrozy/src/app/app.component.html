@@ -1,0 +1,30 @@
+<div class="title">
+  {{title}}
+</div>
+
+<body class="body">
+  <div class="pricing">
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <img class="logo" src="../assets/logo.jpg" alt="logo biura podróży">
+          <span class="head"> Biuro podróży: Słoneczne wakacje</span>
+        </a>
+
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="me-3 py-2 text-dark text-decoration-none" href="#">Zaloguj się</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" [routerLink]="['configurator-trip']"> Znajdź wycieczkę</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="#">O nas</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="#">Kontakt</a>
+          <!-- <a class="me-3 py-2 text-dark text-decoration-none" href="#">O nas</a>
+      <a class="me-3 py-2 text-dark text-decoration-none" href="#">Kontakt</a> -->
+          <a class="py-2 text-dark text-decoration-none" href="#"></a>
+        </nav>
+      </div>
+    </header>
+
+    <router-outlet></router-outlet>
+
+  </div>
+</body>

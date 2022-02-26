@@ -26,8 +26,9 @@ public class Trip {
 				private LocalDate departureDate;
 				private LocalDate returnDate;
 				private BigDecimal adultPrice;
-				private BigDecimal childPrice;
 				private String feedingType;
+				private Integer durationTime;
+
 				@ManyToOne
 				private City toCity;
 				@ManyToOne
@@ -37,6 +38,3 @@ public class Trip {
 				@OneToMany(mappedBy = "trip")
 				private Set<TripBuying> tripBuying;
 }
-
-
-

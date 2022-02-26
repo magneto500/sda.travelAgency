@@ -20,7 +20,7 @@ public class CityController {
 				}
 
 				@GetMapping("/show")
-				public List<CityDto> showTrips() {
+				public List<CityDto> showAllCities() {
 								return cityService.showAllCities();
 				}
 

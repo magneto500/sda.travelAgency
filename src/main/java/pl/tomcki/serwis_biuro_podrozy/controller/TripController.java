@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripCreateRequest;
 import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripDto;
+import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripSearchDto;
 import pl.tomcki.serwis_biuro_podrozy.service.TripService;
 
 import java.util.List;
@@ -47,6 +48,9 @@ public class TripController {
 								return tripService.findTripById(idTrip);
 				}
 
-
+				@PostMapping("/search")
+				public List<TripDto> search(@RequestBody TripSearchDto request){
+								return tripService.searchBy(request);
+				}
 }
 
