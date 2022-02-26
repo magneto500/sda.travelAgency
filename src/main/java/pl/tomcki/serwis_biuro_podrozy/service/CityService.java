@@ -1,9 +1,10 @@
 package pl.tomcki.serwis_biuro_podrozy.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.tomcki.serwis_biuro_podrozy.model.City;
-import pl.tomcki.serwis_biuro_podrozy.model.dto.City.CityCreateRequest;
-import pl.tomcki.serwis_biuro_podrozy.model.dto.City.CityDto;
+import pl.tomcki.serwis_biuro_podrozy.Dto.City.CityCreateRequest;
+import pl.tomcki.serwis_biuro_podrozy.Dto.City.CityDto;
 import pl.tomcki.serwis_biuro_podrozy.repository.CityRepository;
 
 import javax.persistence.EntityNotFoundException;
@@ -16,6 +17,7 @@ public class CityService {
 
 				public final CityRepository cityRepository;
 
+				@Autowired
 				public CityService(CityRepository cityRepository) {
 								this.cityRepository = cityRepository;
 				}
@@ -43,17 +45,17 @@ public class CityService {
 
 				public CityDto findCityById(Long idCity) {
 								Optional<City> cityOptional = cityRepository.findById(idCity);
-								if(cityOptional.isPresent()){
+								if (cityOptional.isPresent()) {
 												City city = cityOptional.get();
 												return CityDto.mapFromCity(city);
 								}
-								throw new EntityNotFoundException("Didn't find city with id: "+ idCity);
+								throw new EntityNotFoundException("Didn't find city with id: " + idCity);
 				}
 
 
 				public void updateItem(Long idCity, CityCreateRequest request) {
 								Optional<City> cityOptional = cityRepository.findById(idCity);
-								if(cityOptional.isPresent()) {
+								if (cityOptional.isPresent()) {
 												City city = cityOptional.get();
 
 												city.setCityName(request.getCityName());
@@ -62,7 +64,7 @@ public class CityService {
 												cityRepository.save(city);
 
 								}
-								throw new EntityNotFoundException("Didn't find city with id: "+ idCity);
+								throw new EntityNotFoundException("Didn't find city with id: " + idCity);
 				}
 }
 

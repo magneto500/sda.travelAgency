@@ -1,8 +1,8 @@
 package pl.tomcki.serwis_biuro_podrozy.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.tomcki.serwis_biuro_podrozy.model.dto.City.CityCreateRequest;
-import pl.tomcki.serwis_biuro_podrozy.model.dto.City.CityDto;
+import pl.tomcki.serwis_biuro_podrozy.Dto.City.CityCreateRequest;
+import pl.tomcki.serwis_biuro_podrozy.Dto.City.CityDto;
 import pl.tomcki.serwis_biuro_podrozy.service.CityService;
 import java.util.List;
 

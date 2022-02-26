@@ -19,7 +19,7 @@ INSERT IGNORE INTO `travel_agency`.`city` (`id_city`,`city_name`,`country`)VALUE
 
 # Wstawianie inicjalnych użytkowników
 ;
-INSERT IGNORE INTO `travel_agency`.`user`(`id_user`,`city`,`email_address`,`flat_number`,`lastname`,`name`,`phone_number`,`street`)VALUES(1,"Warszawa","tomek@wp.pl",30,"Kowalski","Mateusz",661111111,"Puławska");
+INSERT IGNORE INTO `travel_agency`.`user`(`id_user`,`city`,`email_address`,`flat_number`,`lastname`,`name`,`phone_number`,`street`)VALUES(1,"Warszawa","mateusz@wp.pl",30,"Kowalski","Mateusz",661111111,"Puławska");
 INSERT IGNORE INTO `travel_agency`.`user`(`id_user`,`city`,`email_address`,`flat_number`,`lastname`,`name`,`phone_number`,`street`)VALUES(2,"Warszawa","kasia@wp.pl",15,"Nowak","Katarzyna",661222222,"Grodkowska");
 
 # Wstawianie inicjalnych wycieczek

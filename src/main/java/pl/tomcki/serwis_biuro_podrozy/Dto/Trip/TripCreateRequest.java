@@ -1,26 +1,16 @@
-package pl.tomcki.serwis_biuro_podrozy.model;
-
+package pl.tomcki.serwis_biuro_podrozy.Dto.Trip;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Set;
-
 
 @Data
-@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Trip {
-
-				@Id
-				@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TripCreateRequest {
 				private Long idTrip;
 				private String descriptionTrip;
 				private LocalDate departureDate;
@@ -28,15 +18,4 @@ public class Trip {
 				private BigDecimal adultPrice;
 				private BigDecimal childPrice;
 				private String feedingType;
-				@ManyToOne
-				private City toCity;
-				@ManyToOne
-				private City fromCity;
-				@OneToMany(mappedBy = "trip")
-				private Set<TripCityPoint> cities;
-				@OneToMany(mappedBy = "trip")
-				private Set<TripBuying> tripBuying;
 }
-
-
-
