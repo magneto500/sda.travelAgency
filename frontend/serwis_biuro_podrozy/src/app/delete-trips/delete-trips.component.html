@@ -1,0 +1,39 @@
+<h1>Wybierz wycieczkę do usunięcia</h1>
+
+
+<div class="d-flex distance">
+  <label class="col-3" for="contentTrip">wybierz wycieczkę do usunięcia</label>
+  <select [(ngModel)]="tripSearch.descriptionTrip" id="contentDescription" class="form-select">
+    <option *ngFor="let trip of descriptionTrip" value="{{trip.descriptionTrip}}">
+      {{trip.descriptionTrip}}</option>
+  </select>
+</div>
+
+<div class=" d-flex distance">
+  <label class="col-3" for="contentCity">Wybierz miasto startowe</label>
+  <select [(ngModel)]="tripSearch.cityStart" id="contentCity" class="form-select">
+    <option *ngFor="let city of cities" value="{{city.cityName}}">
+      {{city.cityName}}</option>
+  </select>
+</div>
+<div class=" d-flex distance">
+  <label class="col-3" for="contentCityFrom">Wybierz datę wyjazdu od...</label>
+  <input type="date" class="form-control col-9" id="contentCityFrom" [(ngModel)]="tripSearch.dateStartFrom" required />
+</div>
+
+<div class=" d-flex distance">
+  <label class="col-3" for="contentText">Data powrotu do...</label>
+  <input type="date" class="form-control col-9" id="contentText" [(ngModel)]="tripSearch.dateStartTo" required />
+</div>
+
+<div class=" d-flex distance">
+  <label class="col-3" for="contentText">Wybierz zakres cenowy od... </label>
+  <input type="number" class="form-control col-9" id="contentText" [(ngModel)]="tripSearch.priceFrom" required />
+</div>
+
+<div class=" d-flex distance">
+  <label class="col-3" for="contentText">Wybierz zakres cenowy ...do </label>
+  <input type="number" class="form-control col-9" id="contentText" [(ngModel)]="tripSearch.priceTo" required />
+</div>
+<button type="button" class="btn btn-primary offset-6 col-3" (click)="DeleteTrips()" >Znajdź i
+  usuń</button>

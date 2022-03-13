@@ -1,0 +1,51 @@
+
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.head{
+  font-style: italic;
+}
+.logo{
+  height: 60px;
+  margin: 10px;
+  -webkit-box-shadow: 100px 0px 40px 0px rgba(255, 137, 137, 1);
+  -moz-box-shadow: 100px 0px 40px 0px rgba(255, 137, 137, 1);
+  box-shadow: 100px 0px 40px 0px rgba(255, 137, 137, 1);
+}
+.body{
+max-width: 900px;
+text-align: center;
+margin: auto;
+}
+.links{
+  text-align: left;
+  margin: auto;
+}
+.now{
+  margin: 20px;
+  border: 2px;
+  border: 4px  red;
+}
+
+.col-9{
+  width: 75% !important;
+}
+.distance{
+  margin:50px;
+}
+
+

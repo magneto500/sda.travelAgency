@@ -1,0 +1,41 @@
+.q-title-left {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.q-content-left{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  text-align: left;
+  margin-top: 40px;
+  line-height: 30px;
+}
+.q-title-center {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+.q-content-center{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 40px;
+  line-height: 30px;
+}
+
+.q-title-right {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: right;
+}
+.q-content-right{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  text-align: right;
+  margin-top: 40px;
+  line-height: 30px;
+}
+

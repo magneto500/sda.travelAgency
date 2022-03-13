@@ -1,0 +1,30 @@
+.about-left {
+  height: 300px;
+  width: 400px;
+  text-align: left;
+  font-size: large;
+  line-height:40px
+}
+
+.whoarewe {
+  font-size: 200;
+  font-style: italic;
+}
+
+.betstOfTheBest {
+width: 380px;
+height: 220;
+}
+.imageTeam{
+  margin-top: 100px;
+  margin-bottom: 80px;
+  height: 509px;
+  width: 836px;
+  border-radius: 46px;
+  transform: rotate(0.016turn)
+}
+.about-2 {
+  text-align: left;
+  font-size: large;
+  line-height:50px
+}
