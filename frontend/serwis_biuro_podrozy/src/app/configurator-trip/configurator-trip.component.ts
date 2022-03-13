@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export type CityDto = {
-  idCity : number;
+  idCity: number;
   cityName: string;
   country: string;
-}
-
+};
 
 export type TripDto = {
   idTrip: number;
@@ -19,7 +18,7 @@ export type TripDto = {
 };
 
 export type TripSearch = {
-  tripDescription: string;
+  descriptionTrip: string;
   dateStartFrom: string;
   dateStartTo: string;
   priceFrom: number;
@@ -28,19 +27,17 @@ export type TripSearch = {
 };
 
 const EMPTY_TRIP_SEARCH = {
-  tripDescription: '',
-  dateStartFrom: '2022-03-05',
+  descriptionTrip: '',
+  dateStartFrom: '2022-03-01',
   dateStartTo: '2022-05-04',
   priceFrom: 0,
-  priceTo: 0,
+  priceTo: 6000,
   cityStart: '',
 };
 
-
-
 @Component({
   selector: 'app-configurator-trip',
-  templateUrl:'./configurator-trip.component.html',
+  templateUrl: './configurator-trip.component.html',
   styleUrls: ['./configurator-trip.component.css'],
 })
 export class ConfiguratorTripComponent implements OnInit {
@@ -48,31 +45,41 @@ export class ConfiguratorTripComponent implements OnInit {
   foundTrips: TripDto[];
   cities: CityDto[];
   trips: TripDto[];
+  descriptionTrip: TripDto[];
 
   constructor(private http: HttpClient) {
     this.tripSearch = Object.assign({}, EMPTY_TRIP_SEARCH);
-    this.foundTrips=[];
+    this.foundTrips = [];
     this.cities = [];
     this.trips = [];
+    this.descriptionTrip = [];
   }
 
   ngOnInit(): void {
+    // szukanie opisów wycieczek
+
+    this.http.get('http://localhost:8080/trip/show').subscribe((data) => {
+      let listOfDescriptionTrip = data as TripDto[];
+      this.descriptionTrip = listOfDescriptionTrip;
+    });
+
     this.http.get('http://localhost:8080/city/show').subscribe((data) => {
       let listOfCities = data as CityDto[];
       this.cities = listOfCities;
     });
 
     this.http.get('http://localhost:8080/trip/show').subscribe((data) => {
-      let listOfTripDescription = data as TripDto[];
-      this.trips = listOfTripDescription;
+      let listOfDescriptionTrip = data as TripDto[];
+      this.trips = listOfDescriptionTrip;
     });
   }
 
   searchTrips() {
-    console.log('wyslij')
-    this.http.post('http://localhost:8080/trip/search', this.tripSearch).subscribe((data) => {
-      let listOfTrips = data as TripDto[];
-      this.foundTrips = listOfTrips;
-    });
+    console.log('funkcja szukania uruchomiona');
+    this.http.post('http://localhost:8080/trip/search', this.tripSearch)
+      .subscribe((data) => {
+        let listOfTrips = data as TripDto[];
+        this.foundTrips = listOfTrips;
+      });
   }
 }

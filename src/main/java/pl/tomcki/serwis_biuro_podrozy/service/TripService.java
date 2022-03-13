@@ -1,7 +1,7 @@
 package pl.tomcki.serwis_biuro_podrozy.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripCreateRequest;
+import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripCreateRequestDto;
 import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripDto;
 import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripSearchDto;
 import pl.tomcki.serwis_biuro_podrozy.model.City;
@@ -32,7 +32,7 @@ public class TripService {
 								tripRepository.deleteById(idTrip);
 				}
 
-				public void saveItem(TripCreateRequest request) {
+				public void saveItem(TripCreateRequestDto request) {
 								Trip createdTrip = Trip.builder()
 																.idTrip(request.getIdTrip())
 																.descriptionTrip(request.getDescriptionTrip())
@@ -53,7 +53,7 @@ public class TripService {
 								throw new EntityNotFoundException("Didn't find trip with id: " + idTrip);
 				}
 
-				public void updateItem(Long idTrip, TripCreateRequest request) {
+				public void updateItem(Long idTrip, TripCreateRequestDto request) {
 								Optional<Trip> tripOptional = tripRepository.findById(idTrip);
 								if (tripOptional.isPresent()) {
 												Trip trip = tripOptional.get();

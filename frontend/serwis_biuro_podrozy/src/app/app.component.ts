@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import {RouterModule, Router, Routes} from '@angular/router';
-import { TripComponent } from './trip/trip.component';
-
 
 @Component({
   selector: 'app-root',

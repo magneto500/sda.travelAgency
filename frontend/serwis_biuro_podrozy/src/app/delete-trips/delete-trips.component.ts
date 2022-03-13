@@ -7,8 +7,7 @@ export type CityDto = {
   country: string;
 };
 
-export type  TripService={
-}
+export type TripService = {};
 
 export type TripDto = {
   idTrip: number;
@@ -51,14 +50,13 @@ export class DeleteTripsComponent implements OnInit {
   descriptionTrip: TripDto[];
   tripService: TripService;
 
-
   constructor(private http: HttpClient) {
     this.tripSearch = Object.assign({}, EMPTY_TRIP_SEARCH);
     this.foundTrips = [];
     this.cities = [];
     this.trips = [];
     this.descriptionTrip = [];
-    this.tripService=[];
+    this.tripService = [];
   }
 
   ngOnInit(): void {
@@ -88,14 +86,13 @@ export class DeleteTripsComponent implements OnInit {
         let listOfTrips = data as TripDto[];
         this.foundTrips = listOfTrips;
       });
-    }
-
-    DeleteTrips():void{
-    console.log('Funkcja usuwająca wycieczkę')
-    this.http
-      .post('http://localhost:8080/trip/search', this.tripSearch)
-      .subscribe((data) => {
-      });
-    this.http.delete('http://localhost:8080/trip/delete/1',this.tripService)
-    }
   }
+
+  deleteById(): void {
+    console.log('Funkcja usuwająca wycieczkę');
+    this.http.post('http://localhost:8080/trip/search', this.tripSearch);
+
+    this.http.delete('http://localhost:8080/trip/delete/{trip.idTrip}', this.tripService);
+    console.log('koniec funkcji');
+  }
+}

@@ -2,11 +2,10 @@ package pl.tomcki.serwis_biuro_podrozy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripCreateRequest;
+import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripCreateRequestDto;
 import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripDto;
 import pl.tomcki.serwis_biuro_podrozy.Dto.Trip.TripSearchDto;
 import pl.tomcki.serwis_biuro_podrozy.service.TripService;
-
 import java.util.List;
 
 //http://localhost:8080/trip/show
@@ -29,12 +28,12 @@ public class TripController {
 				}
 
 				@PostMapping("/add")
-				public void saveTrip(@RequestBody TripCreateRequest request) {
+				public void saveTrip(@RequestBody TripCreateRequestDto request) {
 								tripService.saveItem(request);
 				}
 
 				@PostMapping("/update/{id}")
-				public void saveModifiedTrip(@PathVariable(name = "id") Long idTrip, @RequestBody TripCreateRequest request) {
+				public void saveModifiedTrip(@PathVariable(name = "id") Long idTrip, @RequestBody TripCreateRequestDto request) {
 								tripService.updateItem(idTrip, request);
 				}
 

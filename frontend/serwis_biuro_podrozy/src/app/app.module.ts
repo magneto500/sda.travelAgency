@@ -7,13 +7,21 @@ import { TripComponent } from './trip/trip.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ConfiguratorTripComponent } from './configurator-trip/configurator-trip.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { DeleteTripsComponent } from './delete-trips/delete-trips.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TripComponent,
     ConfiguratorTripComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    DeleteTripsComponent,
   ],
   imports: [
     BrowserModule,

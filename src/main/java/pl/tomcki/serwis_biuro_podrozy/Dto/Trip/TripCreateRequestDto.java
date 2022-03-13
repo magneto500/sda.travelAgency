@@ -10,12 +10,11 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TripCreateRequest {
+public class TripCreateRequestDto {
 				private Long idTrip;
 				private String descriptionTrip;
 				private LocalDate departureDate;
 				private LocalDate returnDate;
 				private BigDecimal adultPrice;
-				private BigDecimal childPrice;
 				private String feedingType;
 }

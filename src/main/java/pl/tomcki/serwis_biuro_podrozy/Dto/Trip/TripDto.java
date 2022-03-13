@@ -12,9 +12,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 
-import static org.hibernate.hql.internal.antlr.HqlSqlTokenTypes.INSERT;
-import static org.hibernate.hql.internal.antlr.HqlTokenTypes.INTO;
-
 @Data
 @Builder
 @AllArgsConstructor
